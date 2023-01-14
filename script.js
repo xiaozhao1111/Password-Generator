@@ -96,6 +96,9 @@ let hasNumeric = false;
 let hasSpecial = false;
 let characterTypeNum = 0;
 
+//Delaration of an empty array to store all the selected characters
+let passwordCharacterArr = [];
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   alert("Please set the length of your password!");
@@ -120,9 +123,28 @@ function getRandom(arr) {
   return arr[randomNum];
 }
 
+// Function to join all the selected type characters
+function getSelectedCharacter(){
+  if(hasLowerCase){
+    passwordCharacterArr =passwordCharacterArr.concat(lowerCasedCharacters);
+  }
+  if(hasUpperCase){
+    passwordCharacterArr = passwordCharacterArr.concat(upperCasedCharacters);
+  }
+  if(hasNumeric){
+    passwordCharacterArr = passwordCharacterArr.concat(numericCharacters);
+  }
+  if(hasSpecial){
+    passwordCharacterArr = passwordCharacterArr.concat(specialCharacters);
+  }
+  
+}
+
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
+  getSelectedCharacter();
+  console.log(passwordCharacterArr);
 }
 
 // Get references to the #generate element
