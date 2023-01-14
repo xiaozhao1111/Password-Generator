@@ -111,6 +111,9 @@ function getPasswordOptions() {
     // prompt() always return a string. Make passwordLength to a float before use it.
     passwordLength =parseFloat(passwordLength);
     console.log("Password length is an interger: "+Number.isInteger(passwordLength)); 
+    if (!(passwordLength>10 && passwordLength<64 && Number.isInteger(passwordLength))) {
+      alert("Input for password length is not valid. Please re-enter a valid integer!")
+    }
   }
   console.log("The length of password is " + passwordLength + ".");
 
