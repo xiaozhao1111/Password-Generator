@@ -120,6 +120,9 @@ function getPasswordOptions() {
     hasUpperCase = confirm("The password will have uppercase characters, ok?");
     hasNumeric = confirm("The password will have numeric characters, ok?");
     hasSpecial = confirm("The password will have special characters, ok?");
+    if(!hasLowerCase && !hasUpperCase && !hasNumeric && !hasSpecial){
+      alert("No valid chracter type. Please select at least one character type!")
+    }
   }
 
   // calculate the character type numbers
