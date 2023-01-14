@@ -2,7 +2,7 @@
 This application can generate a random password based on criteria users have selected.
 
 ## Description 
-This project runs in the browser, with features dynamically updated via HTML, CSS and Javascript code. It has a clean and reponsive user interface. The 'Generate Password' button will trigger functions to request password options from users and then display a random password in the textarea with slashed border.
+This project runs in the browser, with features dynamically updated via HTML, CSS and Javascript code. It has a clean and reponsive user interface. The 'Generate Password' button will trigger functions to request password options from users and then display a random password in the textarea with dashed border.
 
 Here are the main features of the webpage.
 * Present a series of prompts to request password criteria
