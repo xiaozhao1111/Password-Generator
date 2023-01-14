@@ -109,6 +109,7 @@ function getPasswordOptions() {
   while(!(passwordLength>10 && passwordLength<64)){
     passwordLength = prompt("The password length should be between 10 and 64, but doesn't include 10 and 64!")
   }
+  console.log("The length of password is " + passwordLength + ".");
 
   alert("Please confirm the character types you prefer!")
   while(!hasLowerCase && !hasUpperCase && !hasNumeric && !hasSpecial){
@@ -119,10 +120,20 @@ function getPasswordOptions() {
   }
 
   // calculate the character type numbers
-  if(hasLowerCase){characterTypeNum++};
-  if(hasUpperCase){characterTypeNum++};
-  if(hasNumeric){characterTypeNum++};
-  if(hasSpecial){characterTypeNum++};
+  if(hasLowerCase){
+    characterTypeNum++;
+    console.log("The password has lower case characters.");
+  };
+  if(hasUpperCase){
+    characterTypeNum++;
+    console.log("The password has upper case characters.");};
+  if(hasNumeric){
+    characterTypeNum++;
+    console.log("The password has numeric characters.");};
+  if(hasSpecial){
+    characterTypeNum++;
+    console.log("The password has special characters.");
+  };
 
 }
 
@@ -152,14 +163,14 @@ function getSelectedCharacter(){
 // Function to shuffle the password string
 function shuffleStr(str){
   let strArr = str.split("");
-  console.log(strArr);
+  console.log("The orginal password string is "+ strArr);
   for(let i=strArr.length-1; i>0; i--){
     let j = Math.floor(Math.random()*(i+1));
     let k = strArr[i];
     strArr[i] = strArr[j];
     strArr[j] = k;
   }
-  console.log(strArr);
+  console.log("The shuffled password string is " + strArr);
   return strArr.join("");
 }
 
