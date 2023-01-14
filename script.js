@@ -115,6 +115,12 @@ function getPasswordOptions() {
     hasSpecial = confirm("The password will have special characters, ok?");
   }
 
+  // calculate the character type numbers
+  if(hasLowerCase){characterTypeNum++};
+  if(hasUpperCase){characterTypeNum++};
+  if(hasNumeric){characterTypeNum++};
+  if(hasSpecial){characterTypeNum++};
+
 }
 
 // Function for getting a random element from an array
@@ -144,7 +150,7 @@ function getSelectedCharacter(){
 function generatePassword() {
   getPasswordOptions();
   getSelectedCharacter();
-  console.log(passwordCharacterArr);
+  
 }
 
 // Get references to the #generate element
