@@ -7,8 +7,8 @@ This project runs in the browser, with features dynamically updated via HTML, CS
 Here are the main features of the webpage.
 * Present a series of prompts to request password criteria
     * Length of the password should be at least 10 but no more than 64.
-    * select at least one character type from 'lower case characters', 'upper case characters', 'numeric characters' and 'special characters'.
-* The browser window will keep request information from users if the input isn't fit for the password criteria.
+    * At least one character type shoulbe be selected from 'lower case characters', 'upper case characters', 'numeric characters' and 'special characters'.
+* The browser window will keep requesting information from users if the input isn't fit for the password criteria.
 * The button should work properly to generate more than one passowrd.
 
 ## Deployment
