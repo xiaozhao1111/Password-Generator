@@ -88,8 +88,29 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+// Declaration of global variables for the password option settings
+let passwordLength = 0;
+let hasLowerCase = false;
+let hasUpperCase = false;
+let hasNumeric = false;
+let hasSpecial = false;
+let characterTypeNum = 0;
+
 // Function to prompt user for password options
 function getPasswordOptions() {
+  alert("Please set the length of your password!");
+  // keep requesting the password length while the password length is not between 10 and 64.
+  while(!(passwordLength>10 && passwordLength<64)){
+    passwordLength = prompt("The password length should be between 10 and 64, but doesn't include 10 and 64!")
+  }
+
+  alert("Please confirm the character types you prefer!")
+  while(!hasLowerCase && !hasUpperCase && !hasNumeric && !hasSpecial){
+    hasLowerCase = confirm("The password will have lowercase characters, ok?");
+    hasUpperCase = confirm("The password will have uppercase characters, ok?");
+    hasNumeric = confirm("The password will have numeric characters, ok?");
+    hasSpecial = confirm("The password will have special characters, ok?");
+  }
 
 }
 
@@ -100,7 +121,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-
+  getPasswordOptions();
 }
 
 // Get references to the #generate element
