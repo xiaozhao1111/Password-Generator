@@ -96,8 +96,11 @@ let hasNumeric = false;
 let hasSpecial = false;
 let characterTypeNum = 0;
 
-//Delaration of an empty array to store all the selected characters
+// Delaration of an empty array to store all the selected characters
 let passwordCharacterArr = [];
+
+// Declaration of an string the store random characters for password
+let passwordStr = "";
 
 // Function to prompt user for password options
 function getPasswordOptions() {
@@ -150,7 +153,25 @@ function getSelectedCharacter(){
 function generatePassword() {
   getPasswordOptions();
   getSelectedCharacter();
-  
+  // Firstly, add one random character to the password string if the character type is selected. Then, using a 'for' loop to select random characters from the joined character array that the chracter type was selected.
+if(hasLowerCase){
+  passwordStr += getRandom(lowerCasedCharacters);
+}
+if(hasUpperCase){
+  passwordStr += getRandom(upperCasedCharacters);
+}
+if(hasNumeric){
+  passwordStr += getRandom(numericCharacters);
+}
+if(hasSpecial){
+  passwordStr += getRandom(specialCharacters);
+}
+
+for(let i=0; i<passwordLength-characterTypeNum; i++){
+  passwordStr += getRandom(passwordCharacterArr);
+}
+
+return passwordStr;
 }
 
 // Get references to the #generate element
