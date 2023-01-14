@@ -149,6 +149,16 @@ function getSelectedCharacter(){
   
 }
 
+// Function to randomly sort the password string
+function randomSort(str){
+  for(let i=str.length-1; i>0; i--){
+    let j = Math.floor(Math.random()*(i+1));
+    let k = str[i];
+    str[i] = str[j];
+    str[j] = k;
+  }
+}
+
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
@@ -171,6 +181,7 @@ for(let i=0; i<passwordLength-characterTypeNum; i++){
   passwordStr += getRandom(passwordCharacterArr);
 }
 
+randomSort(passwordStr)
 return passwordStr;
 }
 
