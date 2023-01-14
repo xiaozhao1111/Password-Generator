@@ -149,14 +149,30 @@ function getSelectedCharacter(){
   
 }
 
-// Function to randomly sort the password string
-function randomSort(str){
-  for(let i=str.length-1; i>0; i--){
+// Function to shuffle the password string
+function shuffleStr(str){
+  let strArr = str.split("");
+  console.log(strArr);
+  for(let i=strArr.length-1; i>0; i--){
     let j = Math.floor(Math.random()*(i+1));
-    let k = str[i];
-    str[i] = str[j];
-    str[j] = k;
+    let k = strArr[i];
+    strArr[i] = strArr[j];
+    strArr[j] = k;
   }
+  console.log(strArr);
+  return strArr.join("");
+}
+
+// Function to reset the global values for the generation of another passoword
+function resetValues() {
+  passwordLength = 0;
+  hasLowerCase = false;
+  hasUpperCase = false;
+  hasNumeric = false;
+  hasSpecial = false;
+  characterTypeNum = 0;
+  passwordCharacterArr = [];
+  passwordStr ="";
 }
 
 // Function to generate password with user input
@@ -181,15 +197,19 @@ for(let i=0; i<passwordLength-characterTypeNum; i++){
   passwordStr += getRandom(passwordCharacterArr);
 }
 
-randomSort(passwordStr)
+passwordStr = shuffleStr(passwordStr);
+
 return passwordStr;
 }
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  resetValues(); // reset the values before generate a new password
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
