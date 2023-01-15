@@ -106,12 +106,12 @@ let passwordStr = "";
 function getPasswordOptions() {
   alert("Please set the length of your password!");
   // keep requesting the password length while the password length is not between 10 and 64.
-  while(!(passwordLength>10 && passwordLength<64 && Number.isInteger(passwordLength))){
-    passwordLength = prompt("The password length should be between 10 and 64, but doesn't include 10 and 64!"); 
+  while(!(passwordLength>=10 && passwordLength<=64 && Number.isInteger(passwordLength))){
+    passwordLength = prompt("The password has a length from 10 to 64."); 
     // prompt() always return a string. Make passwordLength to a float before use it.
     passwordLength =parseFloat(passwordLength);
     console.log("Password length is an interger: "+Number.isInteger(passwordLength)); 
-    if (!(passwordLength>10 && passwordLength<64 && Number.isInteger(passwordLength))) {
+    if (!(passwordLength>=10 && passwordLength<=64 && Number.isInteger(passwordLength))) {
       alert("Input for password length is not valid. Please re-enter a valid integer!")
     }
   }
