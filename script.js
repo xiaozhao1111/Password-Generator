@@ -95,24 +95,38 @@ let hasUpperCase = false;
 let hasNumeric = false;
 let hasSpecial = false;
 let characterTypeNum = 0;
-
+let promptInput = " ";
 // Delaration of an empty array to store all the selected characters
 let passwordCharacterArr = [];
 
 // Declaration of an string the store random characters for password
 let passwordStr = "";
 
+// Function to check a string has space or not
+function hasSpace(str){
+  return str.indexOf(" ") >= 0;
+}
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   alert("Please set the length of your password!");
   // keep requesting the password length while the password length is not between 10 and 64.
-  while(!(passwordLength>=10 && passwordLength<=64 && Number.isInteger(passwordLength))){
-    passwordLength = prompt("The password has a length from 10 to 64."); 
+  while(passwordLength < 10 || passwordLength > 64 || !Number.isInteger(passwordLength) || hasSpace(promptInput)){
+    promptInput = prompt("The password has a length from 10 to 64."); 
     // prompt() always return a string. Make passwordLength to a float before use it.
-    passwordLength =parseFloat(passwordLength);
+    passwordLength =parseFloat(promptInput);
     console.log("Password length is an interger: "+Number.isInteger(passwordLength)); 
-    if (!(passwordLength>=10 && passwordLength<=64 && Number.isInteger(passwordLength))) {
-      alert("Input for password length is not valid. Please re-enter a valid integer!")
+   
+    if(hasSpace(promptInput)){
+      alert("Sorry, there are spaces in your input. Please remove any space!")
+    } else if (!Number.isInteger(passwordLength)){
+      alert("Sorry, your input is not an integer!")
+    } else if(passwordLength>64){
+      alert("Sorry, the password is too long. Choose between 10 and 64!")
+    } else if(passwordLength<10){
+      alert("Sorry, the password is too short. Choose between 10 and 64!")
+    } else {
+      alert("Thanks! Your password length is " + passwordLength + ".")
     }
   }
   console.log("The length of password is " + passwordLength + ".");
@@ -230,9 +244,9 @@ var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   resetValues(); // reset the values before generate a new password
+
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
-
   passwordText.value = password;
 }
 
