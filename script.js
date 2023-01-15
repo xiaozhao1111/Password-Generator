@@ -139,6 +139,8 @@ function getPasswordOptions() {
     hasSpecial = confirm("The password will have special characters, ok?");
     if(!hasLowerCase && !hasUpperCase && !hasNumeric && !hasSpecial){
       alert("No valid chracter type. Please select at least one character type!")
+    } else {
+      alert("Thanks for selecting the character types! Lower case characters: " + hasLowerCase +"; upper case characters: " + hasUpperCase + "; numeric characters: " + hasNumeric +"; special characters: " + hasSpecial +".")
     }
   }
 
